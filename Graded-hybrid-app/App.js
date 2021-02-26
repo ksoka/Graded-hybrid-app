@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import StoreView from './components/StoreView'
 import UserPage from './components/UserPage'
 import AddPost from './components/AddPost'
+import AddUser from './components/AddUser'
 import { Ionicons } from 'react-native-vector-icons';
 import axios from 'axios';
 
@@ -22,6 +23,7 @@ export default class App extends Component{
       search: "",
       allPosts: [],
       returnedPost: [],
+      logInStatus: false
     }
   }
 
@@ -66,7 +68,7 @@ export default class App extends Component{
             options={{ tabBarIcon: ({ color, size }) => (
               <Ionicons name="add-circle" color={color} size={size} />
             )}}>
-            { props => <AddPost {...props} newPost={this.newPost}/>}
+            { props => <AddPost {...props} newPost={this.newPost} logInStatus={this.state.logInStatus}/>}
           </Tab.Screen>
           <Tab.Screen 
             name="User" 
@@ -75,6 +77,14 @@ export default class App extends Component{
             }} 
           >
             { props => <UserPage {...props} />}
+          </Tab.Screen>
+          <Tab.Screen
+          name="Register"
+          options={{ tabBarIcon: ({ color, size}) => (
+            <Ionicons name="person" color={color} size={size} />
+          )}}
+          >
+            { props => <AddUser {...props} logInStatus={this.state.logInStatus}/>}
           </Tab.Screen>
         </Tab.Navigator>
       </NavigationContainer>
