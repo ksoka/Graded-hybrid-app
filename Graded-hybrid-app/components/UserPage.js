@@ -9,20 +9,19 @@ const urlAdress = "https://graded-api.herokuapp.com/"
 
 const UserPage = (props) => {
 
+  
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
     pressButton = () => {
         axios.post(urlAdress + 'User', {}, {
-          auth: {
             firstName: firstName,
             lastName: lastName,
-          }
         }).then((response) => {
           console.log(response.data)
-          props.logInStatus = true
+          props.logInStatus()
         })
       }
-
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
 
     let output;
 

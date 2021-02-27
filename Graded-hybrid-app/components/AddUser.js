@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { Text, View, Button} from 'react-native'
 import FormField from './FormField'
-import { v4 as uuidv4 } from 'uuid';
 const axios = require('axios')
 
 const urlAdress = "https://graded-api.herokuapp.com/"
@@ -9,9 +8,7 @@ const urlAdress = "https://graded-api.herokuapp.com/"
 const AddUser = (props) => {
 
     pressButton = () => {
-        let id = uuidv4();
         axios.post(urlAdress + 'User', {}, {
-            id: id,
             firstName: firstName,
             lastName: lastName,
             email: email,

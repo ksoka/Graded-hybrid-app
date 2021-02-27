@@ -47,6 +47,17 @@ export default class App extends Component{
     })
   };
 
+  logInStatus = () => {
+    this.setState({logInStatus: true})
+  }
+
+  refreshPage = () => {
+    axios.get(urlAdress + 'Posts')
+    .then((response) => {
+      this.setState({allPosts: response.data})
+    }) 
+  }
+
 
   render(){
     let output;
@@ -68,7 +79,7 @@ export default class App extends Component{
             options={{ tabBarIcon: ({ color, size }) => (
               <Ionicons name="add-circle" color={color} size={size} />
             )}}>
-            { props => <AddPost {...props} newPost={this.newPost} logInStatus={this.state.logInStatus}/>}
+            { props => <AddPost {...props} newPost={this.newPost} logInStatus={this.state.logInStatus} refreshPage={this.refreshPage}/>}
           </Tab.Screen>
           <Tab.Screen 
             name="User" 
@@ -76,7 +87,7 @@ export default class App extends Component{
               <Ionicons name="person" color={color} size={size} />)
             }} 
           >
-            { props => <UserPage {...props} />}
+            { props => <UserPage {...props} logInStatus={this.logInStatus}/>}
           </Tab.Screen>
           <Tab.Screen
           name="Register"
