@@ -10,7 +10,7 @@ export default FormField = (props) => {
             onChangeText={props.setTextField}
             value={props.textField}
             maxLength={props.maxLength}
-            style={{height: 40, padding: 5}}
+            style={{height: 40, padding: 5, textAlign: 'center',borderWidth: 1, borderColor: '#000', borderRadius: 5, margin: 5, backgroundColor: '#fff'}}
             ></TextInput>
         </View>
     )

@@ -24,7 +24,7 @@ const AddUser = (props) => {
     const [dateOfBirth, setDateOfBirth] = useState('');
 
     return(
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
             <Text style={{fontSize: 50, fontWeight: '700',}}>Register</Text>
             <FormField placeholder='First name' maxLength={50} setTextField={setFirstName} textField={firstName}/>
             <FormField placeholder='Last name' maxLength={50} setTextField={setLastName} textField={lastName}/>

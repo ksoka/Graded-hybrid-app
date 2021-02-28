@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {View, Text, TextInput, Button} from 'react-native'
+import {View, Text, TextInput, Button, ScrollView} from 'react-native'
 import FormField from './FormField'
 const axios = require('axios')
 
@@ -40,15 +40,16 @@ const AddPost = (props) => {
 
     if( props.logInStatus == false) {
         output = (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{fontSize: 50, fontWeight: '700', paddingTop: 20}}>You need to log in to add post</Text>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+                <Text style={{fontSize: 50, fontWeight: '700', paddingTop: 20, textAlign: 'center'}}>You need to log in to add post</Text>
             </View>
         )
     }
     else {
         output = (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{fontSize: 50, fontWeight: '700', paddingTop: 20}}>Adding Post</Text>
+            <ScrollView>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+                <Text style={{fontSize: 50, fontWeight: '700', paddingTop: 20, textAlign: 'center'}}>Adding Post</Text>
                 <FormField placeholder='Title' maxLength={50} setTextField={setTitle} textField={title}/>
                 <FormField placeholder='Description (200 letters)' maxLength={200} setTextField={setDescription} textField={description}/>
                 <FormField placeholder='Category' maxLength={50} setTextField={setCategory} textField={category}/>
@@ -61,6 +62,7 @@ const AddPost = (props) => {
                 <FormField placeholder='Seller info (Home street etc)' maxLength={50} setTextField={setSellerInfo} textField={sellerInfo}/>
                 <Button title="Submit" onPress={pressButton}>Submit</Button>
             </View>
+            </ScrollView>
         )
     }
 

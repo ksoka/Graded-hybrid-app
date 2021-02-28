@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, } from 'react-native'
 
 const PostingBox = (props) => {
     return (
-        <View>
+        <View style={{borderWidth: 1, padding: 5, margin: 2, backgroundColor: '#fff', alignSelf: 'stretch'}}>
             <Text>{props.infor.title}</Text>
             <Text>{props.infor.description}</Text>
             <Text>{props.infor.category}</Text>
